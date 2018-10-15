@@ -8,4 +8,9 @@ const app = new Vue({
       { id: 3, name: 'Mary' },
     ],
   },
+  methods: {
+    handleClick(user) {
+      alert(user.name);
+    },
+  },
 });
