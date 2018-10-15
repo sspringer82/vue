@@ -1,7 +1,6 @@
 <template>
   <ul>  
-    <li>{{usersname}}</li>
-    <User v-for="user in users" :key="user.id" :user="user"/>
+    <User v-for="user in users" :key="user.id" :user="user" @toggleAdmin="toggleAdmin"/>
   </ul>
 </template>
 
@@ -23,5 +22,19 @@ export default {
       ],
     };
   },
+  methods: {
+    toggleAdmin(user) {
+      debugger;
+    },
+  },
 };
 </script>
+
+<style scoped>
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+</style>
+
+

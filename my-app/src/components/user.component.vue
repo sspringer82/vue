@@ -11,7 +11,7 @@ export default {
   props: ['user'],
   methods: {
     handleClick(user) {
-      alert(user.name);
+      this.$emit('toggleAdmin', user);
     },
   },
 };
@@ -19,4 +19,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+li {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-align: left;
+}
 </style>
