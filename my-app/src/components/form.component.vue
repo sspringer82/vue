@@ -1,5 +1,5 @@
 <template>
-  <form @submit="handleSubmit">
+  <form @submit.prevent="handleSubmit">
     Name: <input type="text" v-model="name" /><br />
     is Admin:   <input type="checkbox" v-model="isAdmin"> <br />
     <button type="submit">submit</button>
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.emit('onSave', { name: this.name, isAdmin: this.isAdmin });
+      this.$emit('onSave', { name: this.name, isAdmin: this.isAdmin });
     },
   },
 };
