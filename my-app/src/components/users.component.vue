@@ -13,13 +13,16 @@ export default {
     User,
   },
   props: ['usersname'],
+  async mounted() {
+    this.users = await Promise.resolve([
+      { id: 1, name: 'Peter', isAdmin: false },
+      { id: 2, name: 'Paul', isAdmin: false },
+      { id: 3, name: 'Mary', isAdmin: true },
+    ]);
+  },
   data() {
     return {
-      users: [
-        { id: 1, name: 'Peter', isAdmin: false },
-        { id: 2, name: 'Paul', isAdmin: false },
-        { id: 3, name: 'Mary', isAdmin: true },
-      ],
+      users: [],
     };
   },
   methods: {
