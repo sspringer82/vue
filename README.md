@@ -1,5 +1,7 @@
 # Getting started with Vue
 
+Vue (pronounced /vjuː/, like view)
+
 ## Who am I?
 
 Sebastian Springer
