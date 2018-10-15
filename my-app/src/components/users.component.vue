@@ -17,11 +17,13 @@ export default {
   },
   props: ['usersname'],
   async mounted() {
-    this.users = await Promise.resolve([
-      { id: 1, name: 'Peter', isAdmin: false },
-      { id: 2, name: 'Paul', isAdmin: false },
-      { id: 3, name: 'Mary', isAdmin: true },
-    ]);
+    // this.users = await Promise.resolve([
+    //   { id: 1, name: 'Peter', isAdmin: false },
+    //   { id: 2, name: 'Paul', isAdmin: false },
+    //   { id: 3, name: 'Mary', isAdmin: true },
+    // ]);
+    const response = await fetch('/users');
+    this.users = await response.json();
   },
   data() {
     return {
@@ -33,9 +35,16 @@ export default {
       const toggleUser = this.users.find(item => item.id === user.id);
       toggleUser.isAdmin = !toggleUser.isAdmin;
     },
-    handleSave(user) {
-      const id = Math.max.apply(null, this.users.map(user => user.id)) + 1;
-      this.users.push({ ...user, id });
+    async handleSave(user) {
+      const response = await fetch('/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: JSON.stringify(user),
+      });
+      const data = await response.json();
+      this.users.push(data);
     },
   },
 };
