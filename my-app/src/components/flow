@@ -1,0 +1,11 @@
+ACTION
+
+fetches Data from Server
+
+MUTATION
+
+writes data to the store
+
+
+
+=> component is subscribed to the store

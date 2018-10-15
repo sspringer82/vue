@@ -9,7 +9,7 @@
 import User from './user.component';
 import Form from './form.component';
 
-import { mapState, mapMutations, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 import { ADD_USER, GET_USERS } from '../store.js';
 
@@ -30,8 +30,7 @@ export default {
     async handleSave(user) {
       this[ADD_USER](user);
     },
-    ...mapMutations([ADD_USER]),
-    ...mapActions([GET_USERS]),
+    ...mapActions([GET_USERS, ADD_USER]),
   },
 };
 </script>
