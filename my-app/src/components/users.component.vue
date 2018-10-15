@@ -9,7 +9,9 @@
 import User from './user.component';
 import Form from './form.component';
 
-import { mapState } from 'vuex';
+import { mapState, mapMutations, mapActions } from 'vuex';
+
+import { ADD_USER, GET_USERS } from '../store.js';
 
 export default {
   name: 'users',
@@ -26,6 +28,8 @@ export default {
     // ]);
     // const response = await fetch('/users');
     // this.users = await response.json();
+
+    this[GET_USERS]();
   },
   computed: {
     ...mapState(['users']),
@@ -41,16 +45,19 @@ export default {
       toggleUser.isAdmin = !toggleUser.isAdmin;
     },
     async handleSave(user) {
-      const response = await fetch('/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-        body: JSON.stringify(user),
-      });
-      const data = await response.json();
-      this.users.push(data);
+      //   const response = await fetch('/users', {
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json; charset=utf-8',
+      //     },
+      //     body: JSON.stringify(user),
+      //   });
+      //   const data = await response.json();
+      //   this.users.push(data);
+      this[ADD_USER](user);
     },
+    ...mapMutations([ADD_USER]),
+    ...mapActions([GET_USERS]),
   },
 };
 </script>
