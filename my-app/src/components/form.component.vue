@@ -2,7 +2,7 @@
   <form @submit.prevent="handleSubmit">
     <div>
       <label for="name">Name:</label>
-      <input @change="checkForm" :class="{error: !!errors.name}" id="name" v-model="name">
+      <input ref="name" @change="checkForm" :class="{error: !!errors.name}" id="name" v-model="name">
       <div class="errorMessage" v-if="errors.name">{{errors.name}}</div>
     </div>
     <div>
@@ -29,6 +29,7 @@ export default {
     checkForm() {
       if (this.name.length === 0) {
         this.errors.name = 'Name is a required field';
+        this.$refs.name.focus();
       } else {
         this.errors.name = null;
       }
