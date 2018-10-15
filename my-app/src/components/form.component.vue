@@ -2,7 +2,7 @@
   <form @submit.prevent="handleSubmit">
     <div>
       <label for="name">Name:</label>
-      <input ref="name" @change="checkForm" :class="{error: !!errors.name}" id="name" v-model="name">
+      <input ref="name" @input="checkForm" :class="{error: !!errors.name}" id="name" v-model="name">
       <div class="errorMessage" v-if="errors.name">{{errors.name}}</div>
     </div>
     <div>

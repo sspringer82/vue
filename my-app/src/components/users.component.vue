@@ -9,6 +9,8 @@
 import User from './user.component';
 import Form from './form.component';
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'users',
   components: {
@@ -22,12 +24,15 @@ export default {
     //   { id: 2, name: 'Paul', isAdmin: false },
     //   { id: 3, name: 'Mary', isAdmin: true },
     // ]);
-    const response = await fetch('/users');
-    this.users = await response.json();
+    // const response = await fetch('/users');
+    // this.users = await response.json();
+  },
+  computed: {
+    ...mapState(['users']),
   },
   data() {
     return {
-      users: [],
+      // users: [],
     };
   },
   methods: {
