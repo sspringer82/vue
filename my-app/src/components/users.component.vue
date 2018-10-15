@@ -16,15 +16,16 @@ export default {
   data() {
     return {
       users: [
-        { id: 1, name: 'Peter' },
-        { id: 2, name: 'Paul' },
-        { id: 3, name: 'Mary' },
+        { id: 1, name: 'Peter', isAdmin: false },
+        { id: 2, name: 'Paul', isAdmin: false },
+        { id: 3, name: 'Mary', isAdmin: true },
       ],
     };
   },
   methods: {
     toggleAdmin(user) {
-      debugger;
+      const toggleUser = this.users.find(item => item.id === user.id);
+      toggleUser.isAdmin = !toggleUser.isAdmin;
     },
   },
 };

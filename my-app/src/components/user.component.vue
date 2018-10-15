@@ -1,7 +1,9 @@
 <template>
-  <li @click="handleClick(user)">
+  <li >
     ({{user.id}})
     {{user.name}}
+    {{user.isAdmin}}
+    <button @click="handleClick(user)">toggleAdmin</button>
   </li>
 </template>
 
