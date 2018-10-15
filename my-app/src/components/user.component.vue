@@ -11,12 +11,6 @@
 
 <script>
 export default {
-  created() {
-    console.log('created');
-  },
-  mounted() {
-    console.log('mounted');
-  },
   name: 'User',
   props: ['user'],
   methods: {

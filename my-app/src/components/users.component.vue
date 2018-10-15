@@ -1,16 +1,19 @@
 <template>
   <ul>  
     <User v-for="user in users" :key="user.id" :user="user" @toggleAdmin="toggleAdmin"/>
+    <Form @onSave="handleSave" />
   </ul>
 </template>
 
 <script>
 import User from './user.component';
+import Form from './form.component';
 
 export default {
   name: 'users',
   components: {
     User,
+    Form,
   },
   props: ['usersname'],
   async mounted() {
@@ -29,6 +32,10 @@ export default {
     toggleAdmin(user) {
       const toggleUser = this.users.find(item => item.id === user.id);
       toggleUser.isAdmin = !toggleUser.isAdmin;
+    },
+    handleSave(user) {
+      const id = Math.max.apply(null, this.users.map(user => user.id)) + 1;
+      this.users.push({ ...user, id });
     },
   },
 };
