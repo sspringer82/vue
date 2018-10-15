@@ -1,6 +1,6 @@
 <template>
   <ul>  
-    <User v-for="user in users" :key="user.id" :user="user" @toggleAdmin="toggleAdmin"/>
+    <User v-for="user in users" :key="user.id" :user="user"/>
     <Form @onSave="handleSave" />
   </ul>
 </template>
@@ -27,10 +27,6 @@ export default {
     ...mapState(['users']),
   },
   methods: {
-    toggleAdmin(user) {
-      const toggleUser = this.users.find(item => item.id === user.id);
-      toggleUser.isAdmin = !toggleUser.isAdmin;
-    },
     async handleSave(user) {
       this[ADD_USER](user);
     },

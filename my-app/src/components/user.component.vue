@@ -5,7 +5,6 @@
 
     {{user.isAdmin ?  '👑' : ''}}
     <span v-if="user.isAdmin">👑</span>
-    <button @click="handleClick(user)">toggleAdmin</button>
   </li>
 </template>
 
@@ -13,11 +12,6 @@
 export default {
   name: 'User',
   props: ['user'],
-  methods: {
-    handleClick(user) {
-      this.$emit('toggleAdmin', user);
-    },
-  },
 };
 </script>
 
