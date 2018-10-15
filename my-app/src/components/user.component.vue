@@ -2,13 +2,21 @@
   <li >
     ({{user.id}})
     {{user.name}}
-    {{user.isAdmin}}
+
+    {{user.isAdmin ?  '👑' : ''}}
+    <span v-if="user.isAdmin">👑</span>
     <button @click="handleClick(user)">toggleAdmin</button>
   </li>
 </template>
 
 <script>
 export default {
+  created() {
+    console.log('created');
+  },
+  mounted() {
+    console.log('mounted');
+  },
   name: 'User',
   props: ['user'],
   methods: {
