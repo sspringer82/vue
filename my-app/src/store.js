@@ -19,7 +19,7 @@ const initialState = {
 export default new Vuex.Store({
   state: initialState,
   mutations: {
-    [GET_USERS_SUCCESS](state, payload) {
+    [GET_USERS_SUCCESS](state, { payload }) {
       state.users = payload.users;
     },
     [ADD_USER](state, user) {
