@@ -1,15 +1,19 @@
 <template>
   <ul>  
-    <li v-for="user in users" v-on:click="handleClick(user)" v-bind:key="user.id">
-      ({{user.id}})
-      {{user.name}}
-    </li>
+    <li>{{usersname}}</li>
+    <User v-for="user in users" :key="user.id" :user="user"/>
   </ul>
 </template>
 
 <script>
+import User from './user.component';
+
 export default {
   name: 'users',
+  components: {
+    User,
+  },
+  props: ['usersname'],
   data() {
     return {
       users: [
@@ -18,11 +22,6 @@ export default {
         { id: 3, name: 'Mary' },
       ],
     };
-  },
-  methods: {
-    handleClick(user) {
-      alert(user.name);
-    },
   },
 };
 </script>

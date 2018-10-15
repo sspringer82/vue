@@ -1,13 +1,12 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Users />
+    <Users usersname="Klaus-Jürgen"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-import Users from './components/users.component.vue';
+import Users from './components/users.component';
 
 export default {
   name: 'app',
